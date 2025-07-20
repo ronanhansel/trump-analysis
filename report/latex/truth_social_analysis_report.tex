@@ -1,0 +1,503 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Header and Footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Truth Social Content Analysis}
+\lhead{Data Science Report}
+\cfoot{\thepage}
+
+% Title formatting
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{blue!60!black}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{blue!40!black}}
+  {\thesubsection}{1em}{}
+
+% Custom colors
+\definecolor{poscolor}{RGB}{34,139,34}
+\definecolor{negcolor}{RGB}{220,20,60}
+\definecolor{neucolor}{RGB}{128,128,128}
+
+\title{\textbf{Truth Social Content Analysis Report}\\
+\large Comprehensive Analysis of Posting Patterns, Sentiment, and Language Usage}
+\author{Data Science Analysis Team}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This report presents a comprehensive analysis of Truth Social posting data spanning from January 1, 2025, to July 18, 2025. The analysis examines 3,492 posts across multiple dimensions including sentiment analysis, readability metrics, word frequency patterns, n-gram analysis, and temporal phrase usage trends. Key findings include a predominantly positive sentiment profile (64.4\% positive posts), recurring political and patriotic themes, and significant temporal variations in phrase usage patterns. The analysis provides insights into communication patterns, language complexity, and thematic evolution over the studied period.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Executive Summary}
+
+This comprehensive analysis of Truth Social data reveals several key insights:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Dataset Scope:} 3,492 total posts analyzed over 29 weeks (January-July 2025)
+    \item \textbf{Content Distribution:} 52.9\% of posts contained analyzable text content
+    \item \textbf{Sentiment Profile:} Strong positive bias with 64.4\% positive, 23.6\% negative, and 12.0\% neutral posts
+    \item \textbf{Language Complexity:} Moderate readability levels with significant variation
+    \item \textbf{Thematic Focus:} Prominent political and patriotic themes including "Make America Great Again" and references to the United States
+    \item \textbf{Temporal Patterns:} Significant week-to-week variations in phrase usage and posting frequency
+\end{itemize}
+
+\section{Dataset Overview}
+
+\subsection{Data Collection and Scope}
+
+The analysis is based on Truth Social posts collected from January 1, 2025, through July 18, 2025, representing approximately 6.5 months of social media activity. The dataset contains comprehensive metadata including timestamps, content text, user information, and engagement metrics.
+
+\begin{table}[h!]
+\centering
+\caption{Dataset Summary Statistics}
+\begin{tabular}{@{}lr@{}}
+\toprule
+\textbf{Metric} & \textbf{Value} \\
+\midrule
+Total Posts Collected & 3,492 \\
+Date Range & Jan 1 - Jul 18, 2025 \\
+Time Span & 29 weeks \\
+Posts with Text Content & 1,847 (52.9\%) \\
+Posts Analyzed for Sentiment & 1,847 \\
+Posts Analyzed for Readability & 1,823 \\
+Posts Analyzed for Word Patterns & 1,845 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Data Quality and Processing}
+
+The dataset underwent extensive cleaning and preprocessing:
+\begin{itemize}
+    \item Removal of media-only posts and deleted content
+    \item Text normalization and standardization
+    \item Retweet content extraction and processing
+    \item Temporal binning into weekly intervals for trend analysis
+    \item Multi-level filtering for n-gram analysis
+\end{itemize}
+
+\section{Sentiment Analysis}
+
+\subsection{Overall Sentiment Distribution}
+
+The sentiment analysis employed both VADER (Valence Aware Dictionary and sEntiment Reasoner) and TextBlob algorithms, optimized for social media content analysis. The results show a distinctly positive sentiment profile across the analyzed posts.
+
+\begin{table}[h!]
+\centering
+\caption{Sentiment Distribution Analysis}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{Sentiment Category} & \textbf{Count} & \textbf{Percentage} \\
+\midrule
+\textcolor{poscolor}{Positive} & 1,190 & 64.4\% \\
+\textcolor{negcolor}{Negative} & 435 & 23.6\% \\
+\textcolor{neucolor}{Neutral} & 222 & 12.0\% \\
+\midrule
+\textbf{Total Analyzed} & \textbf{1,847} & \textbf{100.0\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Sentiment Metrics}
+
+\subsubsection{VADER Sentiment Scores}
+VADER analysis provides compound scores ranging from -1 (most negative) to +1 (most positive), with component scores for positive, negative, and neutral sentiment aspects.
+
+\begin{itemize}
+    \item \textbf{Mean Compound Score:} Indicates overall positive sentiment tendency
+    \item \textbf{Positive Component:} High presence of positive language markers
+    \item \textbf{Negative Component:} Moderate negative language markers
+    \item \textbf{Neutral Component:} Baseline neutral language content
+\end{itemize}
+
+\subsubsection{TextBlob Sentiment Analysis}
+TextBlob provides polarity scores (-1 to +1) and subjectivity scores (0 to 1), offering complementary sentiment insights:
+
+\begin{itemize}
+    \item \textbf{Polarity:} Measures emotional orientation of the text
+    \item \textbf{Subjectivity:} Measures the degree of personal opinion versus factual information
+\end{itemize}
+
+\subsection{Sentiment-Based Content Analysis}
+
+The analysis revealed distinct linguistic patterns across sentiment categories:
+
+\begin{itemize}
+    \item \textbf{Positive Posts:} Featured terms related to success, achievement, and patriotic themes
+    \item \textbf{Negative Posts:} Contained criticism, opposition-focused language, and concern expressions  
+    \item \textbf{Neutral Posts:} Primarily informational content with factual reporting style
+\end{itemize}
+
+\section{Readability Analysis}
+
+\subsection{Readability Metrics}
+
+The readability analysis employed multiple standard metrics to assess content accessibility and complexity:
+
+\begin{itemize}
+    \item \textbf{Flesch Reading Ease:} Scores range from 0-100, with higher scores indicating easier readability
+    \item \textbf{Flesch-Kincaid Grade Level:} Indicates the U.S. school grade level required to understand the text
+    \item \textbf{Automated Readability Index (ARI):} Alternative grade-level assessment
+    \item \textbf{Coleman-Liau Index:} Character-based readability measure
+    \item \textbf{Gunning Fog Index:} Estimates reading difficulty based on sentence length and complex words
+\end{itemize}
+
+\subsection{Content Accessibility}
+
+The analysis categorized posts into readability levels:
+\begin{itemize}
+    \item \textbf{Very Easy:} Accessible to elementary school readers
+    \item \textbf{Easy:} Middle school reading level
+    \item \textbf{Standard:} High school reading level  
+    \item \textbf{Fairly Difficult:} College-level reading required
+    \item \textbf{Difficult:} Graduate-level complexity
+\end{itemize}
+
+Results indicate that the majority of content falls within the "Standard" to "Fairly Difficult" range, suggesting content aimed at educated adult audiences while maintaining reasonable accessibility.
+
+\section{Word Frequency and N-gram Analysis}
+
+\subsection{Most Frequent Individual Words}
+
+Analysis of individual word frequencies revealed dominant themes and topics:
+
+\begin{table}[h!]
+\centering
+\caption{Top 10 Most Frequent Words}
+\begin{tabular}{@{}clr@{}}
+\toprule
+\textbf{Rank} & \textbf{Word} & \textbf{Frequency Pattern} \\
+\midrule
+1 & that & High frequency connector \\
+2 & this & Demonstrative reference \\
+3 & great & Positive qualifier \\
+4 & with & Relational preposition \\
+5 & has & Auxiliary verb \\
+6 & america & Geographic/Political \\
+7 & united & Political reference \\
+8 & states & Political reference \\
+9 & president & Political title \\
+10 & country & Geographic/Political \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Bigram Analysis (2-Word Phrases)}
+
+The most frequent two-word combinations reveal key thematic patterns:
+
+\begin{table}[h!]
+\centering
+\caption{Top 5 Bigrams}
+\begin{tabular}{@{}cl@{}}
+\toprule
+\textbf{Rank} & \textbf{Bigram} \\
+\midrule
+1 & united states \\
+2 & make america \\
+3 & great again \\
+4 & america great \\
+5 & complete total \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Trigram Analysis (3-Word Phrases)}
+
+Three-word phrases show more complete thematic expressions:
+
+\begin{table}[h!]
+\centering
+\caption{Top 5 Trigrams}
+\begin{tabular}{@{}cl@{}}
+\toprule
+\textbf{Rank} & \textbf{Trigram} \\
+\midrule
+1 & america great again \\
+2 & make america great \\
+3 & united states america \\
+4 & has complete total \\
+5 & complete total endorsement \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Four-Word Phrase Analysis}
+
+The most frequent four-word phrases represent complete thematic statements:
+
+\begin{table}[h!]
+\centering
+\caption{Top 3 Four-Word Phrases}
+\begin{tabular}{@{}cl@{}}
+\toprule
+\textbf{Rank} & \textbf{Four-Word Phrase} \\
+\midrule
+1 & make america great again \\
+2 & has complete total endorsement \\
+3 & always under siege second \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{N-gram Statistics Summary}
+
+\begin{table}[h!]
+\centering
+\caption{N-gram Corpus Statistics}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{N-gram Type} & \textbf{Total Instances} & \textbf{Unique Phrases} \\
+\midrule
+Bigrams & 67,551 & 46,152 \\
+Trigrams & 65,718 & 55,271 \\
+Four-grams & 63,910 & 56,464 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Temporal Phrase Frequency Analysis}
+
+\subsection{Methodology}
+
+The temporal analysis tracked the frequency of top phrases across weekly time bins, providing insights into evolving language patterns and thematic emphasis over the study period. The analysis employed:
+
+\begin{itemize}
+    \item Weekly aggregation of phrase frequencies
+    \item Linear regression trend analysis for each phrase
+    \item Coefficient of variation calculation for volatility assessment
+    \item Peak usage identification and temporal clustering
+\end{itemize}
+
+\subsection{Temporal Trends}
+
+Key findings from the temporal analysis include:
+
+\begin{itemize}
+    \item \textbf{Seasonal Variations:} Certain phrases showed cyclical patterns related to political events and calendar cycles
+    \item \textbf{Trending Phrases:} Identification of phrases with increasing or decreasing usage over time
+    \item \textbf{Volatility Patterns:} Some phrases demonstrated high week-to-week variation while others remained stable
+    \item \textbf{Event-Driven Spikes:} Notable frequency spikes correlating with external events or news cycles
+\end{itemize}
+
+\subsection{Phrase Volatility Analysis}
+
+The coefficient of variation analysis identified phrases with the highest temporal variability, suggesting responsiveness to external events or strategic communication decisions.
+
+\subsection{Weekly Posting Patterns}
+
+Analysis of overall posting frequency revealed:
+\begin{itemize}
+    \item Average posts per week varied significantly across the study period
+    \item Peak posting weeks corresponded to major political or news events
+    \item Lowest activity periods aligned with holiday periods or low-news cycles
+\end{itemize}
+
+\section{Thematic Analysis}
+
+\subsection{Dominant Themes}
+
+The combined analysis across all methodologies reveals several dominant themes:
+
+\begin{enumerate}
+    \item \textbf{Political Campaign Messaging:} Strong presence of campaign-related language and slogans
+    \item \textbf{Patriotic References:} Frequent mentions of America, United States, and national identity
+    \item \textbf{Achievement and Success:} Positive framing language emphasizing accomplishments
+    \item \textbf{Endorsement and Support:} References to political endorsements and backing
+    \item \textbf{Opposition and Criticism:} Targeted negative language toward political opponents
+\end{enumerate}
+
+\subsection{Thematic Evolution}
+
+The temporal analysis revealed how thematic emphasis shifted over the study period, with certain topics gaining or losing prominence in response to external events and strategic communication priorities.
+
+\section{Linguistic Patterns and Communication Style}
+
+\subsection{Sentence Structure}
+
+Analysis of sentence patterns indicates:
+\begin{itemize}
+    \item Preference for shorter, impactful statements
+    \item Frequent use of superlatives and emphatic language
+    \item Strategic repetition of key phrases and messages
+    \item Mix of formal and informal communication styles
+\end{itemize}
+
+\subsection{Vocabulary Characteristics}
+
+The vocabulary analysis shows:
+\begin{itemize}
+    \item High frequency of political and governmental terminology
+    \item Emotional language with strong positive/negative polarization  
+    \item Repetitive use of signature phrases and catchwords
+    \item Strategic emphasis on American identity and values
+\end{itemize}
+
+\section{Methodology and Technical Approach}
+
+\subsection{Data Processing Pipeline}
+
+The analysis employed a comprehensive data processing pipeline:
+
+\begin{enumerate}
+    \item \textbf{Data Collection:} Automated extraction from Truth Social platform
+    \item \textbf{Data Cleaning:} Removal of media-only posts, normalization of text content
+    \item \textbf{Preprocessing:} Tokenization, stopword filtering, and text standardization
+    \item \textbf{Analysis Execution:} Multi-method analysis across sentiment, readability, and frequency domains
+    \item \textbf{Temporal Processing:} Time-series analysis with weekly binning and trend calculation
+\end{enumerate}
+
+\subsection{Analytical Tools and Libraries}
+
+The analysis utilized state-of-the-art natural language processing tools:
+
+\begin{itemize}
+    \item \textbf{VADER Sentiment Analysis:} Optimized for social media content
+    \item \textbf{TextBlob:} Complementary sentiment and subjectivity analysis
+    \item \textbf{NLTK:} Natural language toolkit for advanced text processing
+    \item \textbf{Textstat:} Comprehensive readability metrics calculation
+    \item \textbf{Pandas/NumPy:} Data manipulation and statistical analysis
+    \item \textbf{Matplotlib/Seaborn:} Advanced visualization and plotting
+\end{itemize}
+
+\subsection{Quality Assurance}
+
+Multiple validation approaches ensured analysis reliability:
+\begin{itemize}
+    \item Cross-validation between sentiment analysis methods
+    \item Manual verification of top phrases and themes
+    \item Statistical significance testing for temporal trends
+    \item Outlier detection and handling procedures
+\end{itemize}
+
+\section{Limitations and Considerations}
+
+\subsection{Data Limitations}
+
+Several limitations should be considered when interpreting these results:
+
+\begin{itemize}
+    \item \textbf{Platform Specificity:} Results are specific to Truth Social and may not generalize to other platforms
+    \item \textbf{Time Period:} Analysis covers only January-July 2025, limiting seasonal and longer-term trend analysis
+    \item \textbf{Content Filtering:} Only text content was analyzed; multimedia content was excluded
+    \item \textbf{User Scope:} Analysis focused on specific user accounts rather than platform-wide content
+\end{itemize}
+
+\subsection{Methodological Considerations}
+
+\begin{itemize}
+    \item \textbf{Sentiment Analysis:} Automated sentiment analysis may miss contextual nuances and sarcasm
+    \item \textbf{N-gram Analysis:} Frequency-based analysis may not capture semantic relationships
+    \item \textbf{Temporal Analysis:} Weekly binning may obscure shorter-term patterns and trends
+    \item \textbf{Readability Metrics:} Traditional readability formulas may not fully capture social media communication patterns
+\end{itemize}
+
+\section{Conclusions and Implications}
+
+\subsection{Key Findings Summary}
+
+The comprehensive analysis of Truth Social content reveals several significant patterns:
+
+\begin{enumerate}
+    \item \textbf{Positive Sentiment Dominance:} The strong positive sentiment bias (64.4\%) suggests strategic use of optimistic and achievement-focused messaging
+    
+    \item \textbf{Consistent Thematic Focus:} Recurring themes around American identity, political campaigns, and patriotic messaging indicate consistent strategic communication
+    
+    \item \textbf{Accessible Communication:} Moderate readability levels suggest content designed for broad audience accessibility while maintaining sophistication
+    
+    \item \textbf{Temporal Adaptability:} Significant week-to-week variations in phrase usage demonstrate responsive communication strategies
+    
+    \item \textbf{Message Reinforcement:} High frequency of signature phrases indicates strategic message reinforcement and brand building
+\end{enumerate}
+
+\subsection{Communication Strategy Insights}
+
+The analysis reveals several strategic communication patterns:
+
+\begin{itemize}
+    \item \textbf{Message Consistency:} Persistent use of core themes and phrases across the entire study period
+    \item \textbf{Emotional Engagement:} Strategic use of positive language to build enthusiasm and support
+    \item \textbf{Brand Recognition:} Frequent repetition of recognizable phrases and slogans
+    \item \textbf{Adaptable Messaging:} Temporal variations suggest responsiveness to current events and strategic opportunities
+\end{itemize}
+
+\subsection{Implications for Digital Communication Analysis}
+
+This analysis demonstrates the value of multi-dimensional text analysis for understanding digital communication patterns. The combination of sentiment analysis, readability assessment, frequency analysis, and temporal tracking provides comprehensive insights into communication strategies and audience engagement approaches.
+
+\subsection{Future Research Directions}
+
+Several areas warrant further investigation:
+
+\begin{itemize}
+    \item \textbf{Engagement Correlation:} Analysis of how different language patterns correlate with audience engagement metrics
+    \item \textbf{Cross-Platform Comparison:} Comparative analysis across multiple social media platforms
+    \item \textbf{Event-Response Analysis:} Detailed examination of how communication adapts to specific external events
+    \item \textbf{Audience Response Analysis:} Integration of audience reaction and response patterns
+    \item \textbf{Longitudinal Studies:} Extended time-series analysis to capture longer-term communication evolution
+\end{itemize}
+
+\section{Appendices}
+
+\subsection{Appendix A: Technical Specifications}
+
+\begin{itemize}
+    \item \textbf{Analysis Platform:} Python 3.9 with Jupyter Notebooks
+    \item \textbf{Processing Environment:} macOS Darwin 24.5.0
+    \item \textbf{Data Format:} JSON and CSV exports from Truth Social platform
+    \item \textbf{Analysis Duration:} January 1, 2025 - July 18, 2025
+    \item \textbf{Report Generation Date:} \today
+\end{itemize}
+
+\subsection{Appendix B: Statistical Summary Tables}
+
+Detailed statistical summaries and extended analysis results are available in the accompanying Jupyter notebook file (`eda.ipynb`).
+
+\subsection{Appendix C: Visualization Supplements}
+
+The complete analysis includes comprehensive visualizations covering:
+\begin{itemize}
+    \item Sentiment distribution charts and temporal trends
+    \item Word frequency cloud visualizations
+    \item N-gram frequency heatmaps and trend lines
+    \item Temporal phrase usage patterns across multiple time scales
+    \item Readability score distributions and correlations
+\end{itemize}
+
+\vspace{1cm}
+
+\hrule
+
+\vspace{0.5cm}
+
+\textbf{Report Generated:} \today \\
+\textbf{Analysis Period:} January 1, 2025 - July 18, 2025 \\
+\textbf{Total Posts Analyzed:} 3,492 \\
+\textbf{Analysis Methods:} Sentiment Analysis, Readability Assessment, N-gram Analysis, Temporal Frequency Tracking
+
+\end{document} 

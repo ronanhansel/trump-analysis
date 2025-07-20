@@ -1,0 +1,312 @@
+{
+  "model_info": {
+    "algorithm": "LDA (Latent Dirichlet Allocation)",
+    "n_topics": 10,
+    "n_documents": 1821,
+    "n_features": 1000,
+    "perplexity": 601.2508463131064,
+    "log_likelihood": -230287.65209755237
+  },
+  "topics": {
+    "topic_1": {
+      "id": 0,
+      "name": "Topic 1: district-general-law",
+      "num_posts": 95,
+      "percentage": 5.216913783635365,
+      "top_words": [
+        "district",
+        "general",
+        "law",
+        "attorney",
+        "judge",
+        "justice",
+        "court",
+        "new",
+        "southern",
+        "record"
+      ],
+      "word_weights": [
+        65.87074908231081,
+        65.16182384242214,
+        64.08940093006846,
+        63.099948369380336,
+        62.466481397629515,
+        53.03582215413603,
+        52.953651083141686,
+        43.86481504030542,
+        40.09993698315244,
+        39.799380182821274
+      ]
+    },
+    "topic_2": {
+      "id": 1,
+      "name": "Topic 2: secure-energy-total",
+      "num_posts": 91,
+      "percentage": 4.99725425590335,
+      "top_words": [
+        "secure",
+        "energy",
+        "total",
+        "complete total",
+        "complete",
+        "endorsement",
+        "border",
+        "total endorsement",
+        "second",
+        "let"
+      ],
+      "word_weights": [
+        122.64528778685917,
+        94.73858382352644,
+        93.29883362215617,
+        91.08334904982657,
+        88.34758518338529,
+        86.09994960622274,
+        82.65872301735678,
+        79.09998562382061,
+        78.72434090173883,
+        75.50322791583699
+      ]
+    },
+    "topic_3": {
+      "id": 2,
+      "name": "Topic 3: biden-joe-dollar",
+      "num_posts": 134,
+      "percentage": 7.358594179022515,
+      "top_words": [
+        "biden",
+        "joe",
+        "dollar",
+        "billion",
+        "joe biden",
+        "judge",
+        "new",
+        "elon",
+        "political",
+        "billion dollar"
+      ],
+      "word_weights": [
+        122.39414486484057,
+        91.09991923323179,
+        68.14621468048583,
+        59.20246069848375,
+        57.09995874759094,
+        51.09754811950192,
+        48.67650082075802,
+        46.09995108100166,
+        45.20561199253048,
+        44.52620253165347
+      ]
+    },
+    "topic_4": {
+      "id": 3,
+      "name": "Topic 4: administration-law-firm",
+      "num_posts": 108,
+      "percentage": 5.930807248764415,
+      "top_words": [
+        "administration",
+        "law",
+        "firm",
+        "including",
+        "water",
+        "tonight",
+        "mark",
+        "national",
+        "air",
+        "pro"
+      ],
+      "word_weights": [
+        48.73518369125967,
+        41.459544997230786,
+        41.099988342384115,
+        40.8894181615478,
+        40.09790098420799,
+        34.916069151392854,
+        31.619417534938435,
+        30.97828020763875,
+        30.85678777333272,
+        30.09999447668337
+      ]
+    },
+    "topic_5": {
+      "id": 4,
+      "name": "Topic 5: announce-pleased-congratulation",
+      "num_posts": 170,
+      "percentage": 9.335529928610653,
+      "top_words": [
+        "announce",
+        "pleased",
+        "congratulation",
+        "pleased announce",
+        "secretary",
+        "border",
+        "university",
+        "serve",
+        "school",
+        "texas"
+      ],
+      "word_weights": [
+        82.25043513195168,
+        76.72547242977087,
+        74.67978794606915,
+        72.42658313421057,
+        65.12529998007572,
+        53.46107544777241,
+        46.71711942511811,
+        45.05637747664694,
+        41.34643255717425,
+        41.09993184743084
+      ]
+    },
+    "topic_6": {
+      "id": 5,
+      "name": "Topic 6: world-god-national",
+      "num_posts": 149,
+      "percentage": 8.182317408017573,
+      "top_words": [
+        "world",
+        "god",
+        "national",
+        "bless",
+        "god bless",
+        "place",
+        "governor",
+        "state",
+        "security",
+        "nation"
+      ],
+      "word_weights": [
+        62.47936759935634,
+        58.09994951505992,
+        46.74784214864941,
+        42.09994871729558,
+        41.099950028333325,
+        38.699458093186884,
+        37.040190636386356,
+        36.79422899870567,
+        34.401750431367375,
+        33.662374796616504
+      ]
+    },
+    "topic_7": {
+      "id": 6,
+      "name": "Topic 7: tariff-thank-country",
+      "num_posts": 276,
+      "percentage": 15.15650741350906,
+      "top_words": [
+        "tariff",
+        "thank",
+        "country",
+        "trade",
+        "iran",
+        "russia",
+        "good",
+        "deal",
+        "war",
+        "matter"
+      ],
+      "word_weights": [
+        131.252161989685,
+        109.78552946076212,
+        98.73482353538802,
+        96.42930203253077,
+        96.21609704692473,
+        92.09992740537147,
+        89.65901304176302,
+        84.69791590698291,
+        78.22317841570421,
+        77.13523406656938
+      ]
+    },
+    "topic_8": {
+      "id": 7,
+      "name": "Topic 8: canada-day-nation",
+      "num_posts": 256,
+      "percentage": 14.058209774848985,
+      "top_words": [
+        "canada",
+        "day",
+        "nation",
+        "year",
+        "world",
+        "honor",
+        "tariff",
+        "going",
+        "today",
+        "executive"
+      ],
+      "word_weights": [
+        94.0999668785341,
+        83.3101450015203,
+        77.72952183023638,
+        65.1070711797539,
+        60.20667958209943,
+        50.86823836257222,
+        48.78424517696386,
+        46.79077226407842,
+        45.920486237700686,
+        43.10984768950015
+      ]
+    },
+    "topic_9": {
+      "id": 8,
+      "name": "Topic 9: big-republican-democrat",
+      "num_posts": 281,
+      "percentage": 15.43108182317408,
+      "top_words": [
+        "big",
+        "republican",
+        "democrat",
+        "beautiful",
+        "radical",
+        "left",
+        "big beautiful",
+        "tax",
+        "win",
+        "radical left"
+      ],
+      "word_weights": [
+        150.89530476893225,
+        146.8936356177091,
+        108.0288999428987,
+        107.70936166394957,
+        93.09988274173772,
+        87.75801072685994,
+        84.09994100483537,
+        83.72236041708267,
+        82.82533931506217,
+        73.09993279637072
+      ]
+    },
+    "topic_10": {
+      "id": 9,
+      "name": "Topic 10: fake-news-fake news",
+      "num_posts": 261,
+      "percentage": 14.332784184514002,
+      "top_words": [
+        "fake",
+        "news",
+        "fake news",
+        "time",
+        "like",
+        "rate",
+        "price",
+        "election",
+        "new",
+        "bad"
+      ],
+      "word_weights": [
+        124.91148794366079,
+        122.39141745478419,
+        82.09996940600992,
+        80.75866639470547,
+        76.45093547877867,
+        55.09998823380972,
+        54.7359345487421,
+        52.935414317263174,
+        50.439227599462214,
+        45.514848113318195
+      ]
+    }
+  }
+}
