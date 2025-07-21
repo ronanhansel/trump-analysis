@@ -1,10 +1,10 @@
 {
-  "analysis_date": "2025-07-20T15:23:10.450807",
+  "analysis_date": "2025-07-21T10:23:46.043915",
   "dataset_info": {
-    "total_posts": 2695,
+    "total_posts": 1885,
     "date_range": {
       "start": "2025-01-01T10:48:00",
-      "end": "2025-07-18T21:39:00"
+      "end": "2025-07-20T20:53:00"
     }
   },
   "target_words": [
@@ -13,33 +13,33 @@
   ],
   "results": {
     "Joe": {
-      "total_occurrences": 98,
-      "posts_with_word": 71,
-      "percentage_of_posts": 2.6345083487940633,
-      "average_per_post": 1.380281690140845,
+      "total_occurrences": 96,
+      "posts_with_word": 70,
+      "percentage_of_posts": 3.7135278514588856,
+      "average_per_post": 1.3714285714285714,
       "max_per_post": 6,
       "first_occurrence": "2025-01-02T09:08:00",
-      "last_occurrence": "2025-07-18T06:45:00",
+      "last_occurrence": "2025-07-20T15:31:00",
       "monthly_distribution": {
-        "2025-07": 3,
-        "2025-06": 12,
+        "2025-07": 5,
+        "2025-06": 10,
         "2025-05": 16,
         "2025-04": 20,
-        "2025-03": 17,
-        "2025-02": 19,
+        "2025-03": 16,
+        "2025-02": 18,
         "2025-01": 11
       }
     },
     "Epstein": {
-      "total_occurrences": 16,
-      "posts_with_word": 8,
-      "percentage_of_posts": 0.29684601113172543,
-      "average_per_post": 2.0,
+      "total_occurrences": 20,
+      "posts_with_word": 12,
+      "percentage_of_posts": 0.636604774535809,
+      "average_per_post": 1.6666666666666667,
       "max_per_post": 6,
       "first_occurrence": "2025-07-12T17:21:00",
-      "last_occurrence": "2025-07-18T08:04:00",
+      "last_occurrence": "2025-07-20T08:07:00",
       "monthly_distribution": {
-        "2025-07": 16
+        "2025-07": 20
       }
     }
   }

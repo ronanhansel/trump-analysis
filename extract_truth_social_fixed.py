@@ -232,7 +232,7 @@ def print_results(posts):
 
 def main():
     html_file = 'full.html'
-    output_file = 'truth_social_posts_final.json'
+    output_file = 'report/data/truth_social_posts_final.json'
     
     try:
         posts = extract_truth_social_posts(html_file)
