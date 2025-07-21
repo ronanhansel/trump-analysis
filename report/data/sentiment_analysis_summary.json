@@ -1,0 +1,48 @@
+{
+  "analysis_info": {
+    "total_posts_analyzed": 1847,
+    "analysis_date": "2025-07-21 00:35:37",
+    "sentiment_tools": [
+      "VADER",
+      "TextBlob"
+    ],
+    "date_range": {
+      "start": "2025-01-01",
+      "end": "2025-07-18"
+    }
+  },
+  "sentiment_distribution": {
+    "Positive": {
+      "count": 1190,
+      "percentage": 64.42880346507852
+    },
+    "Negative": {
+      "count": 435,
+      "percentage": 23.551705468327018
+    },
+    "Neutral": {
+      "count": 222,
+      "percentage": 12.019491066594478
+    }
+  },
+  "sentiment_statistics": {
+    "vader_compound": {
+      "mean": 0.3397789388197076,
+      "std": 0.6551763274486831,
+      "min": -0.996,
+      "max": 0.9973
+    },
+    "textblob_polarity": {
+      "mean": 0.17706830731883863,
+      "std": 0.2993543782524339,
+      "min": -1.0,
+      "max": 1.0
+    },
+    "textblob_subjectivity": {
+      "mean": 0.4584052750130611,
+      "std": 0.24776150199648098,
+      "min": 0.0,
+      "max": 1.0
+    }
+  }
+}
